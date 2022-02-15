@@ -50,6 +50,9 @@ protocol NetworkService {
 final class DataNetworkService: NetworkService {
     func fetchDataFor<Request: DataRequest>(request: Request, completionHandler: @escaping ((Result<Request.ResponseData,Error>) -> Void)) {
         
+        /****check for network and return error for no network
+         
+         *****/
         guard var urlComponent = URLComponents(string: request.url) else {
             let error = NSError(
                 domain: ErrorResponse.invalidEndpoint.rawValue,

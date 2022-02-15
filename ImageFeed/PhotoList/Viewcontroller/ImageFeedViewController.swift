@@ -23,7 +23,6 @@ class ImageFeedViewController: UIViewController {
         viewModel.fetchPhotosForOffset(currentPage)
         viewModel.reloadViewClosure = { [weak self] in
             DispatchQueue.main.async {
-                self?.collectionView.collectionViewLayout.invalidateLayout()
                 self?.collectionView.reloadData()
             }
         }

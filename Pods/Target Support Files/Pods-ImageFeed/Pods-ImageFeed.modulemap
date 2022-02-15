@@ -1,0 +1,6 @@
+framework module Pods_ImageFeed {
+  umbrella header "Pods-ImageFeed-umbrella.h"
+
+  export *
+  module * { export * }
+}

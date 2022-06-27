@@ -10,7 +10,7 @@ import XCTest
 
 class APIServiceTests: XCTestCase {
     var mockService: NetworkService?
-    
+
     override func setUp() {
         super.setUp()
         mockService = MockService()
@@ -20,7 +20,7 @@ class APIServiceTests: XCTestCase {
         super.tearDown()
         mockService = nil
     }
-    
+
     func testData() {
         mockService?.fetchDataFor(request: MockRequest(), completionHandler: { result in
             switch result {
@@ -31,6 +31,19 @@ class APIServiceTests: XCTestCase {
             }
         })
     }
-
+    
+    func testNetworkCall() {
+        XCTAssertThrowsError(try MockRequestURLFailure().decode(Data())) { error in
+            XCTAssertNotNil(error)
+        }
+        DataNetworkService().fetchDataFor(request: MockRequestURLFailure(), completionHandler: { result in
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+               XCTAssertNotNil(error)
+            }
+        })
+    }
 }
 

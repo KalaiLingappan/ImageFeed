@@ -15,16 +15,24 @@ class PhotoViewmodeTests: XCTestCase {
         super.setUp()
         viewModel =  ImageFeedViewModel(service: MockService())
     }
-
+    
     override func tearDown() {
         super.tearDown()
         viewModel = nil
     }
     
-    func testFetchPhotos() {
-        viewModel?.fetchPhotosForOffset(0)
-        viewModel?.reloadViewClosure = { [weak self] in
-            XCTAssertEqual(self?.viewModel?.photos.count, 10)
+    func testFetchPhotosSuccess() {
+        viewModel?.fetchPhotosForOffset(0, request: MockRequest())
+        XCTAssertEqual(self.viewModel?.photos.count, 10)
+    }
+    
+    func testFetchPhotosErrorAlert() {
+        viewModel?.fetchPhotosForOffset(0, request: MockRequestFailure())
+        do {
+            let unwrappedValue = try XCTUnwrap(self.viewModel?.alertMessage)
+            XCTAssertNotNil(unwrappedValue)
+        } catch {
+            
         }
     }
 }
@@ -34,14 +42,11 @@ class PhotoViewmodeTests: XCTestCase {
 class MockService: NetworkService {
     func fetchDataFor<Request: DataRequest>(request: Request, completionHandler: @escaping ((Result<Request.ResponseData, Error>) -> Void)) {
         do {
-            try completionHandler(.success(request.decode(Data())))
+            let json = try request.decode(Data())
+            completionHandler(.success(json))
         } catch let error as NSError {
             completionHandler(.failure(error))
         }
-    }
-    
-    func simulateFailure() {
-        //simulate failure and check
     }
 }
 
@@ -53,13 +58,38 @@ struct MockRequest: DataRequest {
     var queryItems: [String : String] { [:] }
     
     func decode(_ data: Data) throws -> [Photo] {
-        let path = Bundle.main.path(forResource: "Mock", ofType: "json")!
-        let data = try! Data(contentsOf: URL(fileURLWithPath: path))
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-        let photos = try! decoder.decode(ResponseData.self, from: data)
-        return photos
+        guard let jsonData = HelperClass.readLocalFile(forName: "Mock") else {
+            return []
+        }
+        
+        do {
+            let decodedJSON = try JSONDecoder().decode(ResponseData.self, from: jsonData)
+            return decodedJSON
+        } catch {
+            return []
+        }
     }
+}
+
+struct MockRequestFailure: DataRequest {
+    var url: String { return "" }
+    
+    var method: HTTPMethod { .get }
+    var headers: [String : String] { [:] }
+    var queryItems: [String : String] { [:] }
+    
+    func decode(_ data: Data) throws -> [Photo] {
+        throw NSError(domain: "", code: 101, userInfo: ["localizedDescription": "Error parsing JSON"])
+    }
+}
+
+struct MockRequestURLFailure: DataRequest {
+    typealias ResponseData = [Photo]
+    
+    var url: String { return "http://example.com:-80/" }
+    var method: HTTPMethod { .get }
+    var headers: [String : String] { [:] }
+    var queryItems: [String : String] { [:] }
 }
 
 

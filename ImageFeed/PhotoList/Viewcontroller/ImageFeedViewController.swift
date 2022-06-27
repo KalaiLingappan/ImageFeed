@@ -20,7 +20,8 @@ class ImageFeedViewController: UIViewController {
     }
     
     private func setView() {
-        viewModel.fetchPhotosForOffset(currentPage)
+        fetchPhotosFor(0)
+    
         viewModel.reloadViewClosure = { [weak self] in
             DispatchQueue.main.async {
                 self?.collectionView.reloadData()
@@ -43,7 +44,7 @@ class ImageFeedViewController: UIViewController {
     }
     
     private func fetchPhotosFor(_ offset: Int = 0) {
-        viewModel.fetchPhotosForOffset(offset)
+        viewModel.fetchPhotosForOffset(currentPage, request: PhotoDataRequest(endPoint: URLEndPoint.list, page: currentPage))
     }
     
     private func showAlert( _ message: String ) {

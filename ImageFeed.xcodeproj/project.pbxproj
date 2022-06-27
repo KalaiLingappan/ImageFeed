@@ -13,9 +13,7 @@
 		1F132CFD27B7DC5B0082EF4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F132CFB27B7DC5B0082EF4F /* Main.storyboard */; };
 		1F132CFF27B7DC760082EF4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F132CFE27B7DC760082EF4F /* Assets.xcassets */; };
 		1F132D0227B7DC760082EF4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F132D0027B7DC760082EF4F /* LaunchScreen.storyboard */; };
-		1F132D0D27B7DC760082EF4F /* ImageFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F132D0C27B7DC760082EF4F /* ImageFeedTests.swift */; };
 		1F132D1727B7DC770082EF4F /* ImageFeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F132D1627B7DC770082EF4F /* ImageFeedUITests.swift */; };
-		1F132D1927B7DC770082EF4F /* ImageFeedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F132D1827B7DC770082EF4F /* ImageFeedUITestsLaunchTests.swift */; };
 		1FEF3B9727B91E330002E4B3 /* RestAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF3B9627B91E330002E4B3 /* RestAPIHelper.swift */; };
 		1FEF3B9A27B91ECA0002E4B3 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF3B9927B91ECA0002E4B3 /* Photo.swift */; };
 		1FEF3B9D27BA24110002E4B3 /* PhotoDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF3B9C27BA24110002E4B3 /* PhotoDataRequest.swift */; };
@@ -28,6 +26,10 @@
 		1FEF3BB427BB80730002E4B3 /* PhotoViewmodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF3BB327BB80730002E4B3 /* PhotoViewmodeTests.swift */; };
 		7510DF9F4C3D08F7CBC0A2D6 /* Pods_ImageFeed_ImageFeedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA674AC4B48159185659161 /* Pods_ImageFeed_ImageFeedUITests.framework */; };
 		8ADAA5DF01F8EFABCE0D31BD /* Pods_ImageFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D5BEDBC9BD54C7F8E5729DA /* Pods_ImageFeed.framework */; };
+		A34E42A62867FC6800ADD282 /* HelperClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34E42A52867FC6800ADD282 /* HelperClassTests.swift */; };
+		A34E42A82868149700ADD282 /* ImageFeedViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34E42A72868149700ADD282 /* ImageFeedViewControllerTest.swift */; };
+		A36586CC2864A60600619FC1 /* PhotoCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36586CB2864A60600619FC1 /* PhotoCellViewModelTests.swift */; };
+		A36586CF2865BF3800619FC1 /* HelperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36586CE2865BF3800619FC1 /* HelperClass.swift */; };
 		E48B11276CE6D59A8946180D /* Pods_ImageFeedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2840226C835082B9CE1DE0D /* Pods_ImageFeedTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,10 +60,8 @@
 		1F132D0127B7DC760082EF4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F132D0327B7DC760082EF4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F132D0827B7DC760082EF4F /* ImageFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F132D0C27B7DC760082EF4F /* ImageFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedTests.swift; sourceTree = "<group>"; };
 		1F132D1227B7DC760082EF4F /* ImageFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F132D1627B7DC770082EF4F /* ImageFeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedUITests.swift; sourceTree = "<group>"; };
-		1F132D1827B7DC770082EF4F /* ImageFeedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1FEF3B9627B91E330002E4B3 /* RestAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPIHelper.swift; sourceTree = "<group>"; };
 		1FEF3B9927B91ECA0002E4B3 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		1FEF3B9C27BA24110002E4B3 /* PhotoDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDataRequest.swift; sourceTree = "<group>"; };
@@ -73,6 +73,10 @@
 		1FEF3BB327BB80730002E4B3 /* PhotoViewmodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewmodeTests.swift; sourceTree = "<group>"; };
 		2D5BEDBC9BD54C7F8E5729DA /* Pods_ImageFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C8CC5670B31A3DC4BE0A6CB /* Pods-ImageFeedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageFeedTests.release.xcconfig"; path = "Target Support Files/Pods-ImageFeedTests/Pods-ImageFeedTests.release.xcconfig"; sourceTree = "<group>"; };
+		A34E42A52867FC6800ADD282 /* HelperClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperClassTests.swift; sourceTree = "<group>"; };
+		A34E42A72868149700ADD282 /* ImageFeedViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedViewControllerTest.swift; sourceTree = "<group>"; };
+		A36586CB2864A60600619FC1 /* PhotoCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCellViewModelTests.swift; sourceTree = "<group>"; };
+		A36586CE2865BF3800619FC1 /* HelperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperClass.swift; sourceTree = "<group>"; };
 		AB2DD4311A1FF6A367E605F3 /* Pods-ImageFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageFeed.release.xcconfig"; path = "Target Support Files/Pods-ImageFeed/Pods-ImageFeed.release.xcconfig"; sourceTree = "<group>"; };
 		B91ED8364930C9A5A7088E73 /* Pods-ImageFeed-ImageFeedUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageFeed-ImageFeedUITests.release.xcconfig"; path = "Target Support Files/Pods-ImageFeed-ImageFeedUITests/Pods-ImageFeed-ImageFeedUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D0BAB36E8B3225925470C11D /* Pods-ImageFeed-ImageFeedUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageFeed-ImageFeedUITests.debug.xcconfig"; path = "Target Support Files/Pods-ImageFeed-ImageFeedUITests/Pods-ImageFeed-ImageFeedUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 		1F132CF427B7DC5B0082EF4F /* ImageFeed */ = {
 			isa = PBXGroup;
 			children = (
+				A36586CD2865BF2200619FC1 /* Utilities */,
 				1F132D2527B7E8690082EF4F /* Service */,
 				1FEF3BA027BA246B0002E4B3 /* PhotoService */,
 				1FEF3BA127BB38440002E4B3 /* PhotoList */,
@@ -152,9 +157,11 @@
 		1F132D0B27B7DC760082EF4F /* ImageFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				1F132D0C27B7DC760082EF4F /* ImageFeedTests.swift */,
 				1FEF3BAC27BB720B0002E4B3 /* APIServiceTests.swift */,
 				1FEF3BB327BB80730002E4B3 /* PhotoViewmodeTests.swift */,
+				A36586CB2864A60600619FC1 /* PhotoCellViewModelTests.swift */,
+				A34E42A52867FC6800ADD282 /* HelperClassTests.swift */,
+				A34E42A72868149700ADD282 /* ImageFeedViewControllerTest.swift */,
 			);
 			path = ImageFeedTests;
 			sourceTree = "<group>";
@@ -163,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				1F132D1627B7DC770082EF4F /* ImageFeedUITests.swift */,
-				1F132D1827B7DC770082EF4F /* ImageFeedUITestsLaunchTests.swift */,
 			);
 			path = ImageFeedUITests;
 			sourceTree = "<group>";
@@ -236,6 +242,14 @@
 				D2840226C835082B9CE1DE0D /* Pods_ImageFeedTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A36586CD2865BF2200619FC1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A36586CE2865BF3800619FC1 /* HelperClass.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		F8E354B5465C029652EDFA4F /* Pods */ = {
@@ -498,6 +512,7 @@
 				1F132CFA27B7DC5B0082EF4F /* ImageFeedViewController.swift in Sources */,
 				1F132CF627B7DC5B0082EF4F /* AppDelegate.swift in Sources */,
 				1FEF3B9727B91E330002E4B3 /* RestAPIHelper.swift in Sources */,
+				A36586CF2865BF3800619FC1 /* HelperClass.swift in Sources */,
 				1FEF3BA627BB38CE0002E4B3 /* ImageFeedViewModel.swift in Sources */,
 				1F132CF827B7DC5B0082EF4F /* SceneDelegate.swift in Sources */,
 				1FEF3B9A27B91ECA0002E4B3 /* Photo.swift in Sources */,
@@ -508,8 +523,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A34E42A82868149700ADD282 /* ImageFeedViewControllerTest.swift in Sources */,
 				1FEF3BAD27BB720B0002E4B3 /* APIServiceTests.swift in Sources */,
-				1F132D0D27B7DC760082EF4F /* ImageFeedTests.swift in Sources */,
+				A36586CC2864A60600619FC1 /* PhotoCellViewModelTests.swift in Sources */,
+				A34E42A62867FC6800ADD282 /* HelperClassTests.swift in Sources */,
 				1FEF3BB427BB80730002E4B3 /* PhotoViewmodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,7 +535,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F132D1927B7DC770082EF4F /* ImageFeedUITestsLaunchTests.swift in Sources */,
 				1F132D1727B7DC770082EF4F /* ImageFeedUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

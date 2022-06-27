@@ -20,15 +20,11 @@ struct PhotoDataRequest: DataRequest {
     }
     
     private var endPoint: URLEndPoint
-    var page: Int = 0
+    private var page: Int = 0
 
     typealias ResponseData = [Photo]
     init(endPoint: URLEndPoint, page: Int = 0) {
         self.endPoint = endPoint
-        self.page = page
-    }
-    
-    mutating func setOffest(_ page: Int) {
         self.page = page
     }
 }

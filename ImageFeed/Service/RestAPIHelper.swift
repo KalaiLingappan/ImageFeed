@@ -26,7 +26,7 @@ enum URLEndPoint: String {
 }
 
 protocol DataRequest {
-    associatedtype ResponseData
+    associatedtype ResponseData: Decodable
     
     var url: String { get }
     var method: HTTPMethod { get }
@@ -36,7 +36,7 @@ protocol DataRequest {
     func decode(_ data: Data) throws -> ResponseData
 }
 
-extension DataRequest where ResponseData: Decodable {
+extension DataRequest {
     func decode(_ data: Data) throws -> ResponseData {
         let decoder = JSONDecoder()
         return try decoder.decode(ResponseData.self, from: data)
@@ -53,7 +53,7 @@ final class DataNetworkService: NetworkService {
         /****check for network and return error for no network
          
          *****/
-        guard var urlComponent = URLComponents(string: request.url) else {
+        guard var urlComponent = URLComponents(string: request.url),let url = urlComponent.url else {
             let error = NSError(
                 domain: ErrorResponse.invalidEndpoint.rawValue,
                 code: 404,
@@ -71,16 +71,7 @@ final class DataNetworkService: NetworkService {
         }
         urlComponent.queryItems = queryItems
         
-        guard let url = urlComponent.url else {
-            let error = NSError(
-                domain: ErrorResponse.invalidEndpoint.rawValue,
-                code: 404,
-                userInfo: nil
-            )
-            
-            return completionHandler(.failure(error))
-        }
-        
+    
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
         urlRequest.allHTTPHeaderFields = request.headers
@@ -90,19 +81,16 @@ final class DataNetworkService: NetworkService {
                 return completionHandler(.failure(error))
             }
             
-            guard let response = response as? HTTPURLResponse, 200..<300 ~= response.statusCode else {
-                return completionHandler(.failure(NSError()))
+            if let response = response as? HTTPURLResponse, 200..<300 ~= response.statusCode,let data = data {
+                do {
+                    try completionHandler(.success(request.decode(data)))
+                } catch let error as NSError {
+                    completionHandler(.failure(error))
+                }
+                return
             }
             
-            guard let data = data else {
-                return completionHandler(.failure(NSError()))
-            }
-            
-            do {
-                try completionHandler(.success(request.decode(data)))
-            } catch let error as NSError {
-                completionHandler(.failure(error))
-            }
+            return completionHandler(.failure(NSError()))
         }
         .resume()
     }

@@ -14,6 +14,7 @@ struct AppURLs {
 enum ErrorResponse: String, Error {
     case noNetwork = "No Network"
     case invalidEndpoint = "Invalid Endpoint"
+    case invalidData = "Invalid Data"
 }
 
 enum HTTPMethod: String {
@@ -47,13 +48,13 @@ protocol NetworkService {
     func fetchDataFor<Request: DataRequest>(request: Request, completionHandler: @escaping ((Result<Request.ResponseData,Error>) -> Void))
 }
 
-final class DataNetworkService: NetworkService {
+struct DataNetworkService: NetworkService {
     func fetchDataFor<Request: DataRequest>(request: Request, completionHandler: @escaping ((Result<Request.ResponseData,Error>) -> Void)) {
         
         /****check for network and return error for no network
          
          *****/
-        guard var urlComponent = URLComponents(string: request.url),let url = urlComponent.url else {
+        guard var urlComponent = URLComponents(string: request.url) else {
             let error = NSError(
                 domain: ErrorResponse.invalidEndpoint.rawValue,
                 code: 404,
@@ -71,11 +72,21 @@ final class DataNetworkService: NetworkService {
         }
         urlComponent.queryItems = queryItems
         
+        guard let url = urlComponent.url else {
+            let error = NSError(
+                domain: ErrorResponse.invalidEndpoint.rawValue,
+                code: 404,
+                userInfo: nil
+            )
+            
+            return completionHandler(.failure(error))
+        }
+        
     
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
         urlRequest.allHTTPHeaderFields = request.headers
-        
+
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if let error = error {
                 return completionHandler(.failure(error))

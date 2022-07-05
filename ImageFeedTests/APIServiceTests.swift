@@ -13,7 +13,7 @@ class APIServiceTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        mockService = MockService()
+        mockService = DataNetworkService()
     }
 
     override func tearDown() {

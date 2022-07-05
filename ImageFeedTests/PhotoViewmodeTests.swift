@@ -13,7 +13,7 @@ class PhotoViewmodeTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        viewModel =  ImageFeedViewModel(service: MockService())
+        viewModel =  ImageFeedViewModel(service: DataNetworkService())
     }
     
     override func tearDown() {
@@ -23,32 +23,24 @@ class PhotoViewmodeTests: XCTestCase {
     
     func testFetchPhotosSuccess() {
         viewModel?.fetchPhotosForOffset(0, request: MockRequest())
-        XCTAssertEqual(self.viewModel?.photos.count, 10)
+        viewModel?.reloadViewClosure = {
+            XCTAssertEqual(self.viewModel?.photos.count, 10)
+        }
     }
     
     func testFetchPhotosErrorAlert() {
         viewModel?.fetchPhotosForOffset(0, request: MockRequestFailure())
-        do {
-            let unwrappedValue = try XCTUnwrap(self.viewModel?.alertMessage)
-            XCTAssertNotNil(unwrappedValue)
-        } catch {
-            
+        viewModel?.showAlertClosure = {
+            do {
+                let unwrappedValue = try XCTUnwrap(self.viewModel?.alertMessage)
+                XCTAssertNotNil(unwrappedValue)
+            } catch {
+                
+            }
         }
     }
 }
 
-
-
-class MockService: NetworkService {
-    func fetchDataFor<Request: DataRequest>(request: Request, completionHandler: @escaping ((Result<Request.ResponseData, Error>) -> Void)) {
-        do {
-            let json = try request.decode(Data())
-            completionHandler(.success(json))
-        } catch let error as NSError {
-            completionHandler(.failure(error))
-        }
-    }
-}
 
 struct MockRequest: DataRequest {
     var url: String { return "" }

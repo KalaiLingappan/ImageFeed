@@ -28,6 +28,9 @@
 		8ADAA5DF01F8EFABCE0D31BD /* Pods_ImageFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D5BEDBC9BD54C7F8E5729DA /* Pods_ImageFeed.framework */; };
 		A34E42A62867FC6800ADD282 /* HelperClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34E42A52867FC6800ADD282 /* HelperClassTests.swift */; };
 		A34E42A82868149700ADD282 /* ImageFeedViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34E42A72868149700ADD282 /* ImageFeedViewControllerTest.swift */; };
+		A351B6DB287C705D004131FB /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A351B6DA287C705D004131FB /* DataRequest.swift */; };
+		A351B6DD287C708C004131FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A351B6DC287C708C004131FB /* Constants.swift */; };
+		A351B6DF287C70B7004131FB /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A351B6DE287C70B7004131FB /* ErrorHandler.swift */; };
 		A36586CC2864A60600619FC1 /* PhotoCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36586CB2864A60600619FC1 /* PhotoCellViewModelTests.swift */; };
 		A36586CF2865BF3800619FC1 /* HelperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36586CE2865BF3800619FC1 /* HelperClass.swift */; };
 		E48B11276CE6D59A8946180D /* Pods_ImageFeedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2840226C835082B9CE1DE0D /* Pods_ImageFeedTests.framework */; };
@@ -75,6 +78,9 @@
 		4C8CC5670B31A3DC4BE0A6CB /* Pods-ImageFeedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageFeedTests.release.xcconfig"; path = "Target Support Files/Pods-ImageFeedTests/Pods-ImageFeedTests.release.xcconfig"; sourceTree = "<group>"; };
 		A34E42A52867FC6800ADD282 /* HelperClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperClassTests.swift; sourceTree = "<group>"; };
 		A34E42A72868149700ADD282 /* ImageFeedViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedViewControllerTest.swift; sourceTree = "<group>"; };
+		A351B6DA287C705D004131FB /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
+		A351B6DC287C708C004131FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A351B6DE287C70B7004131FB /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		A36586CB2864A60600619FC1 /* PhotoCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCellViewModelTests.swift; sourceTree = "<group>"; };
 		A36586CE2865BF3800619FC1 /* HelperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperClass.swift; sourceTree = "<group>"; };
 		AB2DD4311A1FF6A367E605F3 /* Pods-ImageFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageFeed.release.xcconfig"; path = "Target Support Files/Pods-ImageFeed/Pods-ImageFeed.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				1FEF3B9C27BA24110002E4B3 /* PhotoDataRequest.swift */,
+				A351B6DA287C705D004131FB /* DataRequest.swift */,
 			);
 			path = PhotoService;
 			sourceTree = "<group>";
@@ -248,6 +255,8 @@
 			isa = PBXGroup;
 			children = (
 				A36586CE2865BF3800619FC1 /* HelperClass.swift */,
+				A351B6DC287C708C004131FB /* Constants.swift */,
+				A351B6DE287C70B7004131FB /* ErrorHandler.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -507,15 +516,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FEF3BAB27BB4B6D0002E4B3 /* PhotoCellViewModel.swift in Sources */,
+				A351B6DB287C705D004131FB /* DataRequest.swift in Sources */,
 				1FEF3B9D27BA24110002E4B3 /* PhotoDataRequest.swift in Sources */,
 				1FEF3BA927BB4A710002E4B3 /* PhotoCollectionViewCell.swift in Sources */,
 				1F132CFA27B7DC5B0082EF4F /* ImageFeedViewController.swift in Sources */,
+				A351B6DF287C70B7004131FB /* ErrorHandler.swift in Sources */,
 				1F132CF627B7DC5B0082EF4F /* AppDelegate.swift in Sources */,
 				1FEF3B9727B91E330002E4B3 /* RestAPIHelper.swift in Sources */,
 				A36586CF2865BF3800619FC1 /* HelperClass.swift in Sources */,
 				1FEF3BA627BB38CE0002E4B3 /* ImageFeedViewModel.swift in Sources */,
 				1F132CF827B7DC5B0082EF4F /* SceneDelegate.swift in Sources */,
 				1FEF3B9A27B91ECA0002E4B3 /* Photo.swift in Sources */,
+				A351B6DD287C708C004131FB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

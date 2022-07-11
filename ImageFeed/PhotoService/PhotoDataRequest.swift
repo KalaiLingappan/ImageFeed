@@ -28,3 +28,4 @@ struct PhotoDataRequest: DataRequest {
         self.page = page
     }
 }
+

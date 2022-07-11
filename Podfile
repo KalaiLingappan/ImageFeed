@@ -8,6 +8,7 @@ target 'ImageFeed' do
   # Pods for ImageFeed
   pod 'SDWebImage', '~> 4.0'
   pod 'UIScrollView-InfiniteScroll'
+  pod 'Reachability'
 
   target 'ImageFeedTests' do
     inherit! :search_paths

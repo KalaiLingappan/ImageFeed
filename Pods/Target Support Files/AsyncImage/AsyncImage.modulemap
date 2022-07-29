@@ -1,0 +1,6 @@
+framework module AsyncImage {
+  umbrella header "AsyncImage-umbrella.h"
+
+  export *
+  module * { export * }
+}

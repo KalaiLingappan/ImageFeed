@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-ImageFeed/Pods-ImageFeed-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AsyncImage/AsyncImage.framework
 ${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/UIScrollView-InfiniteScroll/UIScrollView_InfiniteScroll.framework

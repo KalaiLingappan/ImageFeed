@@ -1,4 +1,5 @@
 PODS:
+  - AsyncImage (0.1.1)
   - Reachability (3.2)
   - SDWebImage (4.4.8):
     - SDWebImage/Core (= 4.4.8)
@@ -6,21 +7,24 @@ PODS:
   - UIScrollView-InfiniteScroll (1.1.0)
 
 DEPENDENCIES:
+  - AsyncImage
   - Reachability
   - SDWebImage (~> 4.0)
   - UIScrollView-InfiniteScroll
 
 SPEC REPOS:
   trunk:
+    - AsyncImage
     - Reachability
     - SDWebImage
     - UIScrollView-InfiniteScroll
 
 SPEC CHECKSUMS:
+  AsyncImage: 32d6c212f08e8cf1a54d31516697674c9310da22
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
   UIScrollView-InfiniteScroll: 3ef456bcbe759c19f510a383cff96e6647c98c98
 
-PODFILE CHECKSUM: 151e7a674c912178915120babd5ea3050a471de9
+PODFILE CHECKSUM: 84073db3d59c597b691bdd5d580134ad05221315
 
 COCOAPODS: 1.11.3

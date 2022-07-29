@@ -7,6 +7,7 @@
 
 import UIKit
 import UIScrollView_InfiniteScroll
+import SwiftUI
 
 class ImageFeedViewController: UIViewController {
     lazy var viewModel: ImageFeedViewModel = ImageFeedViewModel(service: DataNetworkService())
@@ -74,6 +75,19 @@ extension ImageFeedViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 150, height: 200)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let viewController = UIHostingController(rootView: DetailView(url: getURL(photo: viewModel.photos[indexPath.row])))
+        present(viewController, animated: true, completion: nil)
+    }
+    
+    func getURL(photo: Photo?) -> String {
+        var urlStr = AppURLs.baseURL
+        if let id = photo?.id {
+            urlStr += "id/\(id)"
+        }
+        return urlStr + URLEndPoint.detailImage.rawValue
     }
 }
 
